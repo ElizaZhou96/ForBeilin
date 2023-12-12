@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Letter For Beilin🐇</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400&display=swap">
+  <style>
+    body {
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+	  flex-direction: column; /* 新增，垂直居中 */
+      height: 100vh;
+      margin: 0;
+      overflow-y: auto;
+	  font-family: 'Dancing Script', cursive;
+    }
+
+    .image-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .greeting {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2em;
+      font-weight: bold;
+      color: #333;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .envelope {
+      position: relative;
+      width: 400px;
+      height: 500px;
+      background-color: #fadadd; /* 改成淡粉色 */
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 20px;
+      background-color: #f9ebbd;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+
+    .button {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 40px;
+      background-color: #f4d03f;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      font-size: 1.5em;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #d4b82d;
+    }
+
+    .letter {
+	  overflow-y: auto;
+      max-height: calc(100% - 40px);
+      padding: 30px;
+      color: #333;
+      display: none;
+      transition: opacity 0.5s ease;
+    }
+
+    .letter.active {
+      display: block;
+    }
+
+    .envelope.active {
+      transform: translateY(-50px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="greeting">Happy Graduation, Beilin❤️❤️!</div>
+
+  <div class="image-container">
+    <img src="Happy.png" alt="Happy Graduation!" style="width: 360px; height: auto;">
+  </div>
+
+  <div class="envelope" id="envelope">
+    <div class="flap"></div>
+    <div class="button" onclick="toggleButton()">
+      <span id="buttonEmoji">🐖</span>
+    </div>
+    <div class="letter" id="letter">
+      <p>全世界最可爱最棒棒的贝琳小朋友🐇~</p>
+	  <p>展信佳。今天是认识妹妹的第881天，在我看来有你在的每一天都充满意义，每一天都值得纪念！</p>
+	  <p>在这个激动人心的日子里，首先要给予妹妹最高规格的祝贺🎓！恭喜亲爱的妹妹硕士毕业，你的绚烂人生即将踏上新的征途。这是一个不可思议的成就，也是你辛勤付出的结果。所有的努力都是值得的!我忍不住去回顾你踏上硕士留学之路的那一刻，仿佛能听见你梦想的声音在耳边回响。</p>
+	  <p>我们的相识，仿佛是命中注定的一场邂逅。在这段缘分中，我们共同经历过甜蜜的时光，也一同度过了经受过孤独的考验。我们不仅仅是朋友，更像是灵魂知己，在每一个日子里共同分享生活的酸甜苦辣。</p>
+	  <p>未来，就像远方的山川，充满了未知与挑战。我将一如既往地支持妹妹，和妹妹一同努力奋斗，共同迎接人生的新挑战。我愿意与妹妹分享所有的欢笑和泪水，或许，前方的未知会有曲折或不安，但我坚信妹妹的坚韧和智慧足以应对一切！</p>
+	  <p>最重要的是，希望我们都能拥有健康的身体。健康是一切的基石，是我们能够迎接所有挑战的力量源泉。在这个漫长的人生路上，我们或许会选择不同的方向，但我相信我们的心将永远相连。无论何时何地，只要你需要，我都会在你身边，陪你共度生活的点滴。</p>
+	  <p>祝福亲爱的妹妹前程充满更多的幸运和欢喜，让我们一起迎接新的旅程，创造更多美好的回忆！</p>
+	  <p>May your journey ahead be filled with joy, success, and all the wonderful moments life has to offer. May you continue to shine bright, just like the amazing person you are. Here's to your success, my dear Beilin!</p>
+	  <p>✨✨✨✨✨✨</p>
+	  <p>姐姐 2023/12/13</p>
+    </div>
+	
+	  <div class="image-container">
+    <img src="Beauty.png" alt="Smile" style="width: 360px; height: auto;">
+  </div>
+	
+  </div>
+
+  <script>
+    function toggleButton() {
+      var button = document.getElementById("buttonEmoji");
+      button.innerHTML = button.innerHTML === "🐰" ? "🐖" : "🐰";
+      openLetter();
+    }
+
+    function openLetter() {
+      var envelope = document.getElementById("envelope");
+      var letter = document.getElementById("letter");
+      envelope.classList.toggle("active");
+      letter.classList.toggle("active");
+    }
+  </script>
+
+</body>
+</html>
